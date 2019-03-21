@@ -13,7 +13,17 @@
   </head>
 
   <body>
-    {{ content | safe }}
+    <header>
+      Lex Blog
+    </header>
+
+    <main>
+      Main should follow
+      {% block main %}
+        And should appear here
+      {% endblock %}
+      And end here
+    </main>
   </body>
 
 </html>

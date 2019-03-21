@@ -8,7 +8,8 @@
     "build": "eleventy",
     "start": "eleventy --serve",
     "watch": "eleventy --watch",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "//": "TODO: scripts folder with for e.g. create:script"
   },
   "keywords": [],
   "author": "",

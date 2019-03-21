@@ -1,1 +1,7 @@
+---
+myOtherData: hello
+---
 {% extends "base.njk" %}
+{% block main %}
+  {{ content | safe }}
+{% endblock %}
