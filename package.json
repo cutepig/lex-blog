@@ -4,17 +4,45 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "//": "Build scripts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "eleventy",
-    "start": "eleventy --serve",
-    "watch": "eleventy --watch",
-    "clean": "rm -rf dist",
-    "//": "TODO: scripts folder with for e.g. create:script"
+    "build": "run-s build:*",
+    "start": "run-p start:*",
+    "clean": "rm -rf dist build",
+    "start:server": "static dist",
+    "start:metalsmith": "chokidar --initial package.json metalsmith.js 'content/**/*' 'src/site/**/*.njk' 'src/lib/**/*.js' -c 'npm run build:metalsmith'",
+    "start:css": "postcss --watch --verbose --map --dir dist/css src/site/css/main.css",
+    "build:metalsmith": "metalsmith --config ./src/lib/metalsmith.js",
+    "build:css": "postcss --map --dir dist/css src/site/css/main.css"
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-import": true,
+      "autoprefixer": true
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@11ty/eleventy": "0.7.1"
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "9.5.0",
+    "axios": "0.18.0",
+    "chokidar-cli": "1.2.2",
+    "gray-matter": "4.0.2",
+    "jstransformer-nunjucks": "0.5.0",
+    "lodash": "4.17.11",
+    "metalsmith": "2.3.0",
+    "metalsmith-collections": "0.9.0",
+    "metalsmith-excerpts": "1.2.0",
+    "metalsmith-filemetadata": "1.0.0",
+    "metalsmith-headings": "0.2.0",
+    "metalsmith-layouts": "2.3.0",
+    "metalsmith-markdown": "1.2.0",
+    "metalsmith-permalinks": "2.2.0",
+    "node-static": "0.7.11",
+    "npm-run-all": "4.1.5",
+    "postcss-cli": "6.1.2",
+    "postcss-import": "12.0.1"
   }
 }

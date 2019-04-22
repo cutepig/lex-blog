@@ -1,7 +1,26 @@
----
-myOtherData: hello
----
 {% extends "base.njk" %}
+
 {% block main %}
-  {{ content | safe }}
+  {# TODO: Paging somewhere in the future #}
+
+  {% for post in (posts | sort(true, false, "date")) %}
+    {# TODO: Consider partials for the posts #}
+    <article>
+      <h1>
+        <a href="/{{post.path}}">
+          {{post.title}}
+        </a>
+      </h1>
+
+      <p>
+        <i>{{post.date | formatDate }}</i>
+      </p>
+
+      {{post.excerpt | safe}}
+
+      <p>
+        <a href="/{{post.path}}">Read more</a>
+      </p>
+    </article>
+  {% endfor %}
 {% endblock %}

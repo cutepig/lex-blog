@@ -4,26 +4,38 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ title }}</title>
+    <title>{{ siteName }}
+      |
+      {{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css">
 
     {# <script src="/js/main.js"></script> #}
+
+    {% block head %}{% endblock %}
   </head>
 
   <body>
     <header>
-      Lex Blog
+      <h1>
+        <a href="/">Lex blog</a>
+      </h1>
+      <p class="logo">&#x13153;&#x131CB;&#x13171;</p>
+      <small class="translation">
+        <i>miw (a magic word)</i>
+        [noun]</small>
     </header>
 
     <main>
-      Main should follow
-      {% block main %}
-        And should appear here
-      {% endblock %}
-      And end here
+      {% block main %}{% endblock %}
     </main>
+
+    <footer>
+      <p>
+        <i>&copy; Alex Seidler 2019 - Powered by moonlight</i>
+      </p>
+    </footer>
   </body>
 
 </html>

@@ -1,7 +1,16 @@
----
-myOtherData: hello
----
 {% extends "base.njk" %}
 {% block main %}
-  {{ content | safe }}
+  <article>
+    <h1>{{title}}</h1>
+
+    <p>
+      <i>{{date | formatDate }}</i>
+    </p>
+
+    {{ contents | safe }}
+
+    <p>
+      <a href="/">Back to main page</a>
+    </p>
+  </article>
 {% endblock %}
