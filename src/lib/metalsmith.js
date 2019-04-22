@@ -56,7 +56,7 @@ Metalsmith(__dirname)
   .use(
     paperFolder({
       accessToken: process.env.DROPBOX_AUTH_TOKEN,
-      paperFolderPath: "Lex Blog/Drafts",
+      paperFolderPath: process.env.PAPER_FOLDER_PATH,
       contentPath: "posts",
       metadata: {
         layout: "paperPost"
