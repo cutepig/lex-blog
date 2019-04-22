@@ -9,9 +9,11 @@
     "build": "run-s build:*",
     "start": "run-p start:*",
     "clean": "rm -rf dist build",
+    "//": "Development commands",
     "start:server": "static dist",
     "start:metalsmith": "chokidar --initial package.json metalsmith.js 'content/**/*' 'src/site/**/*.njk' 'src/lib/**/*.js' -c 'npm run build:metalsmith'",
     "start:css": "postcss --watch --verbose --map --dir dist/css src/site/css/main.css",
+    "//": "Build commands",
     "build:metalsmith": "metalsmith --config ./src/lib/metalsmith.js",
     "build:css": "postcss --map --dir dist/css src/site/css/main.css"
   },
